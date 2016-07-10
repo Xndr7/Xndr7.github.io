@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/My-Experiments-with-Tech!/"/>
     <id>http://blog.url.com/My-Experiments-with-Tech!/</id>
     <published>2016-07-10T00:00:00+05:30</published>
-    <updated>2016-07-10T19:46:13+05:30</updated>
+    <updated>2016-07-10T19:55:22+05:30</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -43,7 +43,7 @@ Successfully installed middleman-3.3.7
 1 gem installed
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Also, since we want to make a blog, we can install the &lt;code&gt;middleman-blog&lt;/code&gt; as well as using &lt;code&gt;middleman-deploy&lt;/code&gt; to deploy the site.&lt;/p&gt;
+&lt;p&gt;Also, since we want to make a blog, we can install the &lt;code&gt;middleman-blog&lt;/code&gt; gem as well as use the &lt;code&gt;middleman-deploy&lt;/code&gt; gem to deploy the site.&lt;/p&gt;
 &lt;pre class="highlight plaintext"&gt;&lt;code&gt;$gem install middleman-blog
 $gem install middleman-deploy
 &lt;/code&gt;&lt;/pre&gt;
