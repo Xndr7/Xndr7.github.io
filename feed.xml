@@ -5,82 +5,20 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2014-07-13T21:27:09+05:30</updated>
+  <updated>2016-07-10T00:00:00+05:30</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Criando formulário de contato para Wordpress com Odin Framework</title>
-    <link rel="alternate" href="http://blog.url.com/criando-formulario-de-contato-para-wordpress-com-odin-framework/"/>
-    <id>http://blog.url.com/criando-formulario-de-contato-para-wordpress-com-odin-framework/</id>
-    <published>2014-07-13T21:27:09+05:30</published>
-    <updated>2016-07-10T03:57:41+05:30</updated>
+    <title>My Experiments with Tech!-Part 0</title>
+    <link rel="alternate" href="http://blog.url.com/My-Experiments-with-Tech!/"/>
+    <id>http://blog.url.com/My-Experiments-with-Tech!/</id>
+    <published>2016-07-10T00:00:00+05:30</published>
+    <updated>2016-07-10T08:12:52+05:30</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;&lt;img alt="" src="/assets/images/posts/2014/07/criando-formulario-de-contato-para-wordpress-com-odin-framework.png" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Faaaaaaaaala ai pessoas, tudo jóia?&lt;/p&gt;
-
-&lt;p&gt;O tutorial de hoje está supimpa! Nós vamos criar formulários para Wordpress usando um framework chamado &lt;a title="Odin Framework" href="http://wpod.in/" target="_blank"&gt;Odin Framework&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Primeira coisa que você deve fazer é baixar o Odin, abra o site do Odin e clique no botão &amp;ldquo;Download Odin&amp;rdquo; ou se preferir o link está logo no final desse post.&lt;/p&gt;
-
-&lt;p&gt;Você não precisa de todos os arquivos do Odin para implementar os formulários no seu site, basta que inclua apenas 2 arquivos, o &lt;code&gt;abstract-front-end-form.php&lt;/code&gt; que está dentro do diretório &lt;code&gt;/core/classes/abstracts/&lt;/code&gt; e o &lt;code&gt;class-contact-form.php&lt;/code&gt; que está dentro de &lt;code&gt;/core/classes/&lt;/code&gt;. &lt;strong&gt;É necessário que seja os 2 arquivos pois um depende do outro!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Para esta demostração eu usei o tema &lt;a title="Twenty Twelve Wordpress Theme" href="http://wordpress.org/themes/twentytwelve" target="_blank"&gt;Twenty Twelve&lt;/a&gt;. Dupliquei o arquivo &lt;code&gt;page.php&lt;/code&gt; e criei um template chamado &lt;code&gt;contato.php&lt;/code&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Obs:&lt;/strong&gt; Para saber como criar um template no Wordpress acesse e leia esse link: &lt;a title="Wordpress Page Templates" href="http://codex.wordpress.org/Page_Templates" target="_blank"&gt;Page Tempalte&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Desse template eu removi o &lt;code&gt;while&lt;/code&gt; padrão do tema e a linha onde está chamando o sitebar &lt;code&gt;get_sidebar();&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Agora copie o 2 arquivos para dentro de alguma pasta do seu tema, eu criei um diretório chamado &lt;code&gt;contact-form/&lt;/code&gt; e coloquei os 2 arquivos lá dentro.&lt;/p&gt;
-
-&lt;p&gt;Para que tudo funcione corretamente precisamos incluir os arquivos no arquivo &lt;code&gt;functions.php&lt;/code&gt; do tema. Primeiro o abstract-front-end-form e em seguida o class-contact-form assim:&lt;/p&gt;
-&lt;pre class="highlight php"&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class="c1"&gt;// arquivo function.php
-&lt;/span&gt;
-&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="s1"&gt;'contact-form/abstract-front-end-form.php'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="s1"&gt;'contact-form/class-contact-form.php'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Eu criei um terceiro arquivo chamado &lt;code&gt;contact-form.php&lt;/code&gt; no mesmo diretório e será nesse que iremos criar a função para criar o formulário de contato.&lt;/p&gt;
-
-&lt;p&gt;Seguindo a &lt;a title="Documentação do Odin Contact Form" href="https://github.com/wpbrasil/odin/wiki/Classe-Odin_Contact_Form" target="_blank"&gt;documentação do Odin&lt;/a&gt; iremos criar uma função chamada &lt;code&gt;odin&lt;em&gt;contact&lt;/em&gt;form()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class="highlight php"&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;odin_contact_form&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="nv"&gt;$form&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Odin_Contact_Form&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="s1"&gt;'form_id'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;// ID do formulário
-&lt;/span&gt;    &lt;span class="s1"&gt;'eu@email.com'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;// E-mail do destinatário.
-&lt;/span&gt;    &lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s1"&gt;'vc@email.com'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tu@email.com'&lt;/span&gt; &lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="c1"&gt;// array com e-mails que receberão cópia.
-&lt;/span&gt;    &lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s1"&gt;'alguem@email.com'&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;// array com e-mails que receberão cópia oculta.
-&lt;/span&gt;    &lt;span class="c1"&gt;// array( 'class' =&amp;gt; 'form' ) // array com atributos para o formulário.
-&lt;/span&gt;    &lt;span class="c1"&gt;// 'file' // string com método que será enviado o anexo, no caso 'file' como anexo e 'url' para enviar links.
-&lt;/span&gt;  &lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;$form&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="nx"&gt;add_action&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s1"&gt;'init'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nx"&gt;odin_contact_form&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="s1"&gt;'init'&lt;/span&gt; &lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Nessa função você pode observar que instanciamos a classe &lt;code&gt;Odin&lt;em&gt;Contact&lt;/em&gt;Form()&lt;/code&gt; com alguns atributos obrigatórios como o &lt;strong&gt;id do formulário&lt;/strong&gt; e o &lt;strong&gt;e-mail do destinatário&lt;/strong&gt;, você também pode incluir um array de e-mails extras para receberem uma cópia da mensagem.&lt;/p&gt;
-
-&lt;p&gt;Para criarmos os campos precisamos de um punhado de &lt;code&gt;arrays&lt;/code&gt; e os mesmos precisam estar exatamente em seus devidos lugares para um funcionamento correto da classe do Odin. Para cada campo criado temos um &lt;code&gt;id&lt;/code&gt;, uma &lt;code&gt;label&lt;/code&gt; e um &lt;code&gt;type&lt;/code&gt; que também são obrigatórios. Para mais detalhes da função consulte a &lt;a title="Documentação do Odin Contact Form" href="https://github.com/wpbrasil/odin/wiki/Classe-Odin_Contact_Form" target="_blank"&gt;documentação do Odin&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;O formulário de contato já está criado, mas temos que renderizar o mesmo no template que criamos alguns minutos atrás.&lt;/p&gt;
-
-&lt;p&gt;Basta chamar a função &lt;code&gt;echo odin&lt;em&gt;contact&lt;/em&gt;form()-&amp;gt;render();&lt;/code&gt; onde você quer que o seu formulário apareça, lembrando que &lt;code&gt;odin&lt;em&gt;contact&lt;/em&gt;form()&lt;/code&gt; é o nome da função com a instancia do &lt;code&gt;Odin&lt;em&gt;Contact&lt;/em&gt;Form()&lt;/code&gt; e os &lt;code&gt;arrays&lt;/code&gt; dos campos, se você optou por criar a função com outro nome você chamaria assim: &lt;code&gt;formulario&lt;em&gt;de&lt;/em&gt;contato()-&amp;gt;render();&lt;/code&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Obs:&lt;/strong&gt; O Odin framework usa o HTML e as classes do &lt;a title="Bootstrap 3" href="http://getbootstrap.com/" target="_blank"&gt;Bootstrap 3&lt;/a&gt; então se você não está usando o BS3 como framework css você precisará formatar o seu formulário de contato, isso vale também para a mensagem de envio do formulário.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a class="button" href="https://github.com/wpbrasil/odin/archive/master.zip"&gt;Odin Framework&lt;/a&gt;
-&lt;a class="button-secondary" href="https://app.box.com/s/hbb41skydme4ovz4my27"&gt;Arquivos do tutorial&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;test to check&lt;/p&gt;
 </content>
   </entry>
 </feed>
