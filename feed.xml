@@ -14,11 +14,146 @@
     <link rel="alternate" href="http://blog.url.com/My-Experiments-with-Tech!/"/>
     <id>http://blog.url.com/My-Experiments-with-Tech!/</id>
     <published>2016-07-10T00:00:00+05:30</published>
-    <updated>2016-07-10T08:12:52+05:30</updated>
+    <updated>2016-07-10T19:46:13+05:30</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;test to check&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;code&gt;Blog Initializing.........&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Hey guys!
+In this series of posts, I&amp;rsquo;m going to focus on a few of the various tech-related experiments that I tend to perform.&lt;/p&gt;
+
+&lt;p&gt;In this particular post, since it&amp;rsquo;s the first one I&amp;rsquo;m going to focus on Blogging and and more specifically the process of setting up a Blog using Middleman and Github for hosting.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;What is a Blog?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;A blog can be very specifically defined as a regularly updated website or web page, typically one run by an individual or small group, that is written in an informal or conversational style.
+Blogs are created for a variety of purposes like tech news, education,fashion, gossip, etc.
+Some famous blogs are &lt;a href="http://www.tmz.com"&gt;TMZ&lt;/a&gt; and &lt;a href="http://techcrunch.com"&gt;TechCrunch.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;How to create a blog using Github and Middleman&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com"&gt;Github&lt;/a&gt; is one of the biggest repository hosting services that offers version control as well as few of it&amp;rsquo;s own features. One such feature is that every user can make a static site and serve it through &lt;a href="https://pages.github.com"&gt;Github Pages&lt;/a&gt;. Create an account before continuing with the process.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://middlemanapp.com"&gt;Middleman&lt;/a&gt; is a static site generator that uses ruby to quickly generate and deploy these sites through &lt;a href="https://pages.github.com"&gt;Github Pages&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Steps to install Middleman:&lt;/code&gt;&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$gem install middleman
+Successfully installed middleman-3.3.7
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also, since we want to make a blog, we can install the &lt;code&gt;middleman-blog&lt;/code&gt; as well as using &lt;code&gt;middleman-deploy&lt;/code&gt; to deploy the site.&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$gem install middleman-blog
+$gem install middleman-deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ruby will be needed to be installed first.&lt;/p&gt;
+
+&lt;p&gt;On Windows, goto &lt;a href="https://rubyinstaller.org"&gt;RubyInstaller&lt;/a&gt; and select the latest version(32-bit or 64-bit) and install it.&lt;/p&gt;
+
+&lt;p&gt;Then, from the same website, download the Ruby Dev-kit and extract it using 7z. Goto &lt;a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit"&gt;this page&lt;/a&gt; for more help on the installation process.&lt;/p&gt;
+
+&lt;p&gt;On Unix, install the &lt;code&gt;build-essentials&lt;/code&gt; and &lt;code&gt;ruby-dev&lt;/code&gt; packages.&lt;/p&gt;
+
+&lt;p&gt;If you are using any forked repo from github all that has to be done is:&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$sudo gem install bundler
+$bundle install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This process uses the Gemfile in the Repo to automatically fetch the required gems and makes the process simpler and easy to follow.
+Few middleman based Github Repos are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/danielbayerlein/middleman-casper"&gt;Casper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/biblichor/middleman-blog-bootstrap-template"&gt;Bootstrap based template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Xndr7/personal-site"&gt;This site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To create a default middleman based blog we can use the &lt;code&gt;middleman-blog&lt;/code&gt; gem&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$middleman init {Github_Username}.github.io --template=blog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace {Github_Username} with your own Github Username. This step creates all the files necessary to generate a blog and also downloads the required gem dependencies.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;The Middleman Server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Middleman has the feature of running a server on your local machine. This let&amp;rsquo;s us see a functioning preview of our blog on creation and for prototyping purposes.&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$cd {Github_Username}.github.io
+$middleman server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Goto &lt;a href="http://localhost:4567"&gt;http://localhost:4567&lt;/a&gt; or its local equivalent to see the site. If any errors are detected, solve them first. Most errors are caused due to Build tools and dev-kit being improperly installed. Follow the instructions above and it should work well.&lt;/p&gt;
+
+&lt;p&gt;If everything goes well, you will see an example article on the local site.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Creating a new article&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can create an article using markdown and place it in the related folder. Names of the files follow the &lt;code&gt;&amp;quot;{%year%}-{%month%}-{%day%}-{%title%}.md&lt;/code&gt; format.&lt;/p&gt;
+
+&lt;p&gt;You can create a new article using &lt;code&gt;middleman article&lt;/code&gt;. In the project root folder, run the following:&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$middleman article "This is a test post"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refresh your local site to see the changes made.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Deploying your site! &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have reached here, step back and have some coffee and take a break! You have earned it!&lt;/p&gt;
+
+&lt;p&gt;To continue, we need to configure the setup to deploy to our Github repo directly.This is done by changing the &lt;code&gt;config.rb&lt;/code&gt; file in the root directory.&lt;/p&gt;
+
+&lt;p&gt;Add the following lines to this file:&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.branch = 'master'
+  deploy.build_before = true
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will deploy the site to Github and use the &amp;ldquo;master&amp;rdquo; branch and remote=origin to do so. These configurations can be done when setting Git up.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Git setup&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the root directory,&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$git init
+$git checkout -b change-branch 
+$git commit -m "Init"
+$git push --set-upstream origin change-branch
+$git remote add origin https://github.com/{Github_Username}/{Github_Username}.github.io.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We wont do &lt;code&gt;git push -u origin master&lt;/code&gt; as that is what &lt;code&gt; middleman deploy&lt;/code&gt; will do.&lt;/p&gt;
+
+&lt;p&gt;Before executing the last command, create a new repository on Github with the name specifically in the following format: &lt;code&gt;{Github_Username}.github.io&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This ensures that your site is created properly and linked to the correct repo.&lt;/p&gt;
+
+&lt;p&gt;Now run the following command:&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;$middleman deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You have to enter your Github username and password and it will deploy it to the proper branch. After few moments check {Github_Username}.github.io and you will see your site live.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Adding articles to Github&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This can be done in 3 simple steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a new post using &lt;code&gt;middleman article &amp;quot;TITLE&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Write your post&lt;/li&gt;
+&lt;li&gt;Deploy to Github using &lt;code&gt;middleman deploy&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And you&amp;rsquo;re done!&lt;/p&gt;
+
+&lt;p&gt;If you want to add a specific domain name create a file CNAME in the source branch and add the name with the &amp;ldquo;&lt;a href="https://www"&gt;https://www&lt;/a&gt;&amp;rdquo; to it.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Go Forth and Create!!&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Hopefully, you now realize that Middleman along with GitHub is an extremely potent and cost-effective combination to create static websites. Middleman also has a pleasant workflow. Extensions are available either in the form of Middleman extensions, or as Ruby gems.&lt;/p&gt;
+
+&lt;p&gt;This post didn’t cover customising the look and feel of the site. That’s because it is no different from developing and styling any other site! For inspiration, you can look at &lt;a href="https://middlemanapp.com/community/built_using_middleman/"&gt;other&lt;/a&gt; sites that were developed using Middleman. Thanks for reading!&lt;/p&gt;
 </content>
   </entry>
 </feed>
