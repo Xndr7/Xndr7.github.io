@@ -2,4 +2,6 @@
 
 Personal site made for fun. 
 
-Deployed using middleman 
+Deployed using middleman. 
+
+Auto generated from [Xndr7/personal-site]
